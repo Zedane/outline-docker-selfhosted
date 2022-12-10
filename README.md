@@ -22,38 +22,41 @@ The quick setup was originally done on ubuntu 22.04, but should work on other de
 - `wget`
 - `nano`
 
-Now, get starting
+### 1. Configure Authentication
 
-1. Configure Authentication
+  **1.1 Run a Keycloak container**
+  
+  We'll use the [Keycloak quick setup](https://www.keycloak.org/getting-started/getting-started-docker) to run a keycloak-instance as our authentication provider.
+  ```
+  docker run -p 9090:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.1 start-dev
+  ```
+  We'll expose the container on `Port 9090`, because we'll use 8080 later.
 
-  1.1 Run a Keycloak container
-We'll use [Keycloak quick setup](https://www.keycloak.org/getting-started/getting-started-docker) to run a keycloak-instance as our authentication provider.
-```
-docker run -p 9090:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.1 start-dev
-```
-We'll expose the container on `Port 9090`, because we'll use 8080 later.
+  **1.2 Open the Admin console**
+  
+  Now open up your browser and go to `http://<your servers IP>:9090/admin` and use `admin` and password `admin` to log in.
 
-  1.2 Open the Admin console
-Now open up your browser and go to `http://<your servers IP>:9090/admin` and use `admin` and password `admin` to log in.
+  **1.3 Create a client**
+  
+  You'll need to create a new client and set the following values:
+  - ClientId: outline
+  - 
 
-  1.3 Create a client
-You'll need to create a new client and set the following values:
-- ClientId: outline
-- 
+  **1.4 Create a user**
 
-  1.4 Create a user
+  **1.5 Check the Secret key**
 
-  1.5 Check the Secret key
-You'll need this secret key in step 3.
+  You'll need this secret key in step 3.
 
-2. Get the `docker-compose.yml`. The quick setup has most variables already prefilled.
+### 2. Get the `docker-compose.yml`. 
+The quick setup has most variables already prefilled.
 > **Do NOT use this docker-compose.yml in a production environment!**
 
 ```
 wget https://github.com/zedane/outline-docker-selfhosted/
 ```
 
-3. Create a `.env` file
+### 3. Create a `.env` file
 
 ```
 nano .env
@@ -68,7 +71,7 @@ OL_SECRET= # use openssl rand -hex 32
 CLEINT_SECRET= # use openssl rand -hex 32
 ```
 
-3. Run the containers
+### 4. Run the containers
 
 You can pass `-d` as parameter, if you want the containers to run in the background.
 
