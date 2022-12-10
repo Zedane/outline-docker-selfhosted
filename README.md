@@ -46,10 +46,11 @@ You'll need to create a new client and set the following values:
   1.5 Check the Secret key
 You'll need this secret key in step 3.
 
-2. Get the `docker-compose.yml`. The quick setup has most variables already prefilled. **Do NOT use this docker-compose.yml in a production environment!**
+2. Get the `docker-compose.yml`. The quick setup has most variables already prefilled.
+> **Do NOT use this docker-compose.yml in a production environment!**
 
 ```
-wget https://github.com/
+wget https://github.com/zedane/outline-docker-selfhosted/
 ```
 
 3. Create a `.env` file
