@@ -115,3 +115,5 @@ sudo docker-compose up
 Congratulations! Now you can open up `http://<your servers IP>:8080/` and use outline. In the custom setup you'll se how to set up a reverse proxy an production-ready authentication, so if you're interested, check out that setup. 
 
 ## Custom setup
+
+Coming soon.
