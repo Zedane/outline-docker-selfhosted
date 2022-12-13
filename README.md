@@ -117,3 +117,17 @@ Congratulations! Now you can open up `http://<your servers IP>:8080/` and use ou
 ## Custom setup
 
 Coming soon.
+
+```
+sudo docker run --name keycloak-db -p 5432:5432 -e POSTGRES_PASSWORD=<> -e POSTGRES_USER=keycloak -e POSTGRES_DB=keycloak postgres
+```
+
+
+
+
+``` .env
+HOST=<hostname or IP>
+KEYCLOAK_VERSION=
+KEYCLOAK_PASSWORD=
+POSTGRES_PASSWORD=
+```

@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  keycloak-db:
+    container_name: keycloak-db
+    image: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - keycloak-nw
+
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:legacy
+    restart: always
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloak-db
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+    ports:
+      - 9090:8080
+    depends_on:
+      - keycloak-db
+    networks:
+      - keycloak-nw
+      - host
+      
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  keycloak-nw:
+  host:
