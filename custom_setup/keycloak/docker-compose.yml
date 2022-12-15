@@ -6,7 +6,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - /mnt/containers/keycloak/container-data/db:/var/lib/postgresql/data:Z
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -26,18 +26,16 @@ services:
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+      PROXY_ADDRESS_FORWARDING: 'true'
     ports:
       - 9090:8080
     depends_on:
       - keycloak-db
     networks:
       - keycloak-nw
-      - host
-      
-volumes:
-  postgres_data:
-    driver: local
+      - reverseproxy-nw
 
 networks:
   keycloak-nw:
-  host:
+  reverseproxy-nw:
+    external: true
