@@ -57,7 +57,8 @@ sudo docker run hello-world
 
 ## Quick setup
 
-> ### *Use this method if you just want to try out outline. This method is not safe for production environments.*
+> [!WARNING]  
+> Use this method if you just want to try out outline. This method is not safe for production environments.
 
 The quick setup was originally done on ubuntu 22.04, but should work on other destributions as well. Make sure, that you have the following dependencies already installed:
 
