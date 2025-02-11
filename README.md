@@ -172,6 +172,7 @@ KEYCLOAK_PASSWORD=
 
 ### X. Outline setup
 
+> [!TIP]
 > Some values might not work through the env file. You might have to edit the docker-compose directly, though this method is not recommended!
 
 ```shell
