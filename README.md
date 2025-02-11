@@ -1,5 +1,9 @@
 # Outlinewiki completely self-hosted on docker
 
+> [!IMPORTANT]  
+> This repository contains setup instructions for self-hosting Outline using Docker and other tools. However, these instructions are no longer maintained, are incomplete, and come with no guarantee that they will work as expected.
+> Use at your own risk. No support is provided.
+
 TLDR; Follow the quick setup, if you want to get outline running in an enclosed environment. It will be an IP-based setup, meaning you will be able to access outline via your machines IP. The custom setup includes setting up a reverse proxy.
 
 <br>
@@ -89,7 +93,7 @@ The quick setup has most variables already prefilled.
 > **Do NOT use this docker-compose.yml in a production environment!**
 
 ```shell
-wget https://github.com/zedane/outline-docker-selfhosted/
+wget https://github.com/felixnhs/outline-docker-selfhosted/
 ```
 
 ### 4. Create a `.env` file
@@ -126,7 +130,7 @@ The setup uses example domains. When following the instructions, replace `exampl
 
   **1.1 Load the docker-compose.yml**
   ```shell
-  wget -O proxy/docker-compose.yml https://github.com/Zedane/outline-docker-selfhosted/custom/proxy/docker-compose.yml
+  wget -O proxy/docker-compose.yml https://github.com/felixnhs/outline-docker-selfhosted/custom/proxy/docker-compose.yml
   ```
 
   **1.2 Create a .env file**
